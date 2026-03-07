@@ -1,5 +1,6 @@
-Money Heist: The Interactive Story Engine
-Project Overview
+Money Heist: The Interactive Story Engine:
+Project Overview:
+
 This is my submission for the Dynamic Interactive Story Engine task. I decided to theme the project around Money Heist (La Casa de Papel).
 
 The goal was to build a reusable engine that doesn't just show text, but actually tracks your decisions. Every choice you make impacts the heist's "State"—if you're too aggressive, the police heat rises; if you're too selfish, the team stops trusting you. I also built a built-in Editor mode so you can change the story on the fly without touching the code.
