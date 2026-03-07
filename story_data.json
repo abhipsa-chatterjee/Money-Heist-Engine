@@ -1,0 +1,230 @@
+{
+  "startScene": "THE_OFFER",
+  "scenes": [
+    {
+      "id": "THE_OFFER",
+      "text": "A man in a red hoodie sits across from you in a dim café. His voice is calm, surgical. 'I am the Professor. I don’t steal money. I manufacture it. Printers, hostages, and time. Are you brave enough to help me?'",
+      "choices": [
+        {
+          "text": "Accept immediately",
+          "target": "CHOOSE_ROLE",
+          "effects": { "teamTrust": 1, "fear": -1 },
+          "log": "He nods slowly. 'Confidence is dangerous… but useful.'"
+        },
+        {
+          "text": "Ask for the escape plan",
+          "target": "CHOOSE_ROLE",
+          "effects": { "info": 2 },
+          "log": "The Professor smiles. 'Smart. The exit is more important than the entrance.'"
+        },
+        {
+          "text": "Walk away",
+          "target": "CHOOSE_ROLE",
+          "effects": { "policeAlert": 1, "money": 20 },
+          "log": "He pays off your debt. The police now know your name."
+        }
+      ]
+    },
+
+    {
+      "id": "CHOOSE_ROLE",
+      "text": "Inside a vast hangar, blueprints cover every wall. Red jumpsuits hang like skins of fallen soldiers. 'Every member has a city name,' the Professor says. 'Choose who you want become.'",
+      "choices": [
+        {
+          "text": "Hacker (Rio)",
+          "target": "THE_INSIDER",
+          "effects": { "skill": "hack", "info": 2 },
+          "log": "Welcome Rio. Firewalls become doors to you."
+        },
+        {
+          "text": "Negotiator (Valletta)",
+          "target": "THE_INSIDER",
+          "effects": { "skill": "talk", "publicOpinion": 1 },
+          "log": "Welcome Valletta. Your voice can calm riots."
+        },
+        {
+          "text": "Muscle (Bangkok)",
+          "target": "THE_INSIDER",
+          "effects": { "skill": "combat", "teamTrust": 1 },
+          "log": "Welcome Bangkok. You are the wall between chaos and the crew."
+        },
+        {
+          "text": "Disguise (Dakar)",
+          "target": "THE_INSIDER",
+          "effects": { "skill": "stealth", "deception": 1 },
+          "log": "Welcome Dakar. Faces become masks. Masks become power."
+        }
+      ]
+    },
+
+    {
+      "id": "THE_INSIDER",
+      "text": "A security guard waits in an alley, cigarette shaking in his fingers. 'I can get you inside… but if they find out, I’m dead.'",
+      "choices": [
+        {
+          "text": "Pay him for the codes. ($20)",
+          "target": "ENTRY_METHOD",
+          "effects": { "money": -20, "insiderTrust": 2 },
+          "log": "Greed defeats loyalty. Doesn't it?"
+        },
+        {
+          "text": "Threaten him",
+          "target": "ENTRY_METHOD",
+          "conditions": { "skill": { "eq": "combat" } },
+          "effects": { "fear": 2, "insiderTrust": -1 },
+          "log": "Sometimes the fear of fist is necessary."
+        },
+        {
+          "text": "Earn his trust",
+          "target": "ENTRY_METHOD",
+          "effects": { "insiderTrust": 1, "info": 1 },
+          "log": "He whispers a second access route. Smart move."
+        }
+      ]
+    },
+
+    {
+      "id": "ENTRY_METHOD",
+      "text": "The Royal Mint towers above you. Sirens echo far away. This is the point of no return. Either Bella Ciao or your funeral",
+      "choices": [
+        {
+          "text": "Enter as a police convoy",
+          "target": "HOSTAGES",
+          "effects": { "stealth": 2, "deception": 1 },
+          "log": "The guards salute you."
+        },
+        {
+          "text": "Crawl through the sewer",
+          "target": "HOSTAGES",
+          "effects": { "time": 2, "stealth": 1 },
+          "log": "You smell awful, but atleast it worth the money."
+        },
+        {
+          "text": "Blow the doors open",
+          "target": "HOSTAGES",
+          "effects": { "policeAlert": 2, "chaos": 1 },
+          "log": "Madrid hears the explosion. Drama queen."
+        }
+      ]
+    },
+
+    {
+      "id": "HOSTAGES",
+      "text": "Dozens of hostages kneel. Cameras broadcast your faces to the nation. Panic erupts in them, how to control it?",
+      "choices": [
+        {
+          "text": "Warn the room",
+          "target": "VAULT",
+          "effects": { "teamTrust": 1, "fear": 1 },
+          "log": "Order replaces panic."
+        },
+        {
+          "text": "Win public sympathy",
+          "target": "VAULT",
+          "conditions": { "skill": { "eq": "talk" } },
+          "effects": { "publicOpinion": 2, "fear": -1 },
+          "log": "You frame it as rebellion, not robbery."
+        },
+        {
+          "text": "Make an example",
+          "target": "VAULT",
+          "effects": { "fear": 2, "publicOpinion": -1 },
+          "log": "Cruelty is fast… and unforgettable."
+        }
+      ]
+    },
+
+    {
+      "id": "VAULT",
+      "text": "The printers thunder like beasts. Money stacks higher every minute.",
+      "choices": [
+        {
+          "text": "Hack the vault systems",
+          "target": "THE_CRISIS",
+          "conditions": { "skill": { "eq": "hack" } },
+          "effects": { "money": 60, "time": 1 },
+          "log": "The system obeys you."
+        },
+        {
+          "text": "Drill manually",
+          "target": "THE_CRISIS",
+          "effects": { "money": 30, "noise": 2 },
+          "log": "Steel screams under pressure."
+        },
+        {
+          "text": "Use insider keycard",
+          "target": "THE_CRISIS",
+          "conditions": { "insiderTrust": { "gte": 2 } },
+          "effects": { "money": 50, "stealth": 1 },
+          "log": "Trust pays interest."
+        }
+      ]
+    },
+
+    {
+      "id": "THE_CRISIS",
+      "text": "The power cuts out. Police prepare a rooftop assault.",
+      "choices": [
+        {
+          "text": "Kill the lights digitally",
+          "target": "ESCAPE",
+          "conditions": { "skill": { "eq": "hack" } },
+          "effects": { "stealth": 2, "info": 1 },
+          "log": "Police can't see you anymore. You can escape."
+        },
+        {
+          "text": "Negotiate time",
+          "target": "ESCAPE",
+          "effects": { "publicOpinion": 1, "time": 1 },
+          "log": "You turn bullets into words."
+        },
+        {
+          "text": "Suppressive fire",
+          "target": "ESCAPE",
+          "conditions": { "skill": { "eq": "combat" } },
+          "effects": { "policeAlert": 2, "chaos": 1 },
+          "log": "Violence buys minutes."
+        }
+      ]
+    },
+
+    {
+      "id": "ESCAPE",
+      "text": "The tunnel is ready. Sirens wail above you.",
+      "choices": [
+        {
+          "text": "Fake ambulance escape",
+          "target": "THE_END",
+          "conditions": { "deception": { "gte": 2 } },
+          "log": "You vanish into traffic."
+        },
+        {
+          "text": "Blend with the crowd",
+          "target": "THE_END",
+          "conditions": { "stealth": { "gte": 2 } },
+          "log": "Masks hide faces. Faces hide sins."
+        },
+        {
+          "text": "Final firefight",
+          "target": "THE_END",
+          "effects": { "policeAlert": 2, "teamTrust": -1 },
+          "log": "Freedom costs blood."
+        }
+      ]
+    }
+  ],
+
+  "endings": [
+    {
+      "conditions": { "policeAlert": { "gte": 5 } },
+      "text": "🚨 FAILURE: Surrounded and outgunned, you are arrested. The legend ends in courtrooms. It's okay partner, everybody is gonna die one die"
+    },
+    {
+      "conditions": { "money": { "gte": 150 } },
+      "text": "💰 SUCCESS: You escape with millions. The Professor disappears. You become myth. BELLA CIAO!"
+    },
+    {
+      "text": "🚁 NEUTRAL: You escape alive but poor. You needed $150M for a succesfull heist but nonetheless, survival is its own victory. Better luck next time."
+    }
+  ]
+}

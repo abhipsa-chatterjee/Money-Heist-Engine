@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Money Heist: The Engine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="mode-switcher">
+  <button id="play-mode-btn" class="active">Play Heist</button>
+  <button id="edit-mode-btn">Open Editor</button>
+</nav>
+
+<div id="app">
+  <main id="app-root">
+
+    <section id="game-view">
+      <div class="stats-dashboard">
+        <div class="stat-item">💰 CAPITAL: $<span id="stat-money">100</span>M</div>
+
+        <div class="stat-item">
+          🚨 POLICE HEAT:
+          <div class="stat-bar-bg">
+            <div id="bar-heat" class="stat-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          👥 TEAM TRUST:
+          <div class="stat-bar-bg">
+            <div id="bar-trust" class="stat-bar-fill"></div>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          📢 PUBLIC OPINION: <span id="stat-public">Neutral</span>
+        </div>
+      </div>
+
+      <div class="log-container">
+        <p id="action-log"></p>
+      </div>
+
+      <div id="scene-content">
+        <h2 id="scene-title"></h2>
+        <div class="description-box">
+          <p id="scene-description"></p>
+        </div>
+        <div id="choices-grid"></div>
+      </div>
+    </section>
+
+    <section id="editor-view" class="hidden"></section>
+
+  </main>
+</div>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+:root {
+  --red: #be0000;
+  --text: #f0f0f0;
+}
+
+/* ===== BACKGROUND ===== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("./assets/bg2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== MAIN APP ===== */
+#app {
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  width: 70%;
+  max-width: 900px;
+  margin-top: 80px;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+}
+
+/* ===== NAV ===== */
+.mode-switcher {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: black;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid var(--red);
+  z-index: 10;
+}
+
+.mode-switcher button {
+  margin: 0 10px;
+  border-radius: 20px;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  background: transparent;
+  border: 1px solid var(--red);
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 6px;
+}
+
+button:hover,
+button.active {
+  background: var(--red);
+}
+
+/* ===== GAME VIEW ===== */
+#game-view {
+  margin-top: 20px;
+  background: rgba(0,0,0,0.5);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px black;
+  backdrop-filter: blur(6px);
+}
+
+/* ===== STATS ===== */
+.stats-dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  border: 1px solid var(--red);
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.stat-item {
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.stat-bar-bg {
+  background: #222;
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: var(--red);
+  width: 40%;
+  border-radius: 5px;
+}
+
+/* ===== LOG ===== */
+.log-container {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid #00ff00;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+#action-log {
+  color: #00ff00;
+  font-family: monospace;
+}
+
+/* ===== STORY ===== */
+#scene-title {
+  color: white;
+}
+
+.description-box {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--red);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+#scene-description {
+  color: white;
+  white-space: pre-wrap;
+}
+
+/* ===== CHOICES ===== */
+#choices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+#choices-grid button {
+  background: rgba(48,0,0,0.7);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: left;
+}
+
+/* ===== EDITOR ===== */
+.hidden {
+  display: none;
+}
+
+.editor-layout {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.scene-sidebar {
+  background: rgba(0,0,0,0.6);
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.scene-sidebar li {
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.scene-editor-form {
+  flex: 1;
+  background: rgba(0,0,0,0.6);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  border: 1px solid #444;
+  padding: 8px;
+  border-radius: 6px;
+}
