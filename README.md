@@ -3,7 +3,7 @@ Project Overview:
 
 This is my submission for the Dynamic Interactive Story Engine task. I decided to theme the project around Money Heist (La Casa de Papel).
 
-The goal was to build a reusable engine that doesn't just show text, but actually tracks your decisions. Every choice you make impacts the heist's "State"—if you're too aggressive, the police heat rises; if you're too selfish, the team stops trusting you. I also built a built-in Editor mode so you can change the story on the fly without touching the code.
+The goal was to build a reusable engine that doesn't just show text, but actually tracks your decisions. Every choice you make impacts the heist's "State". If you're too aggressive, the police heat rises; if you're too selfish, the team stops trusting you. I also built a built-in Editor mode so you can change the story on the fly without touching the code.
 
 How I Built It:
 I decided to go with Vanilla JavaScript, HTML, and CSS. I didn't want to use a heavy framework like React because I wanted to really understand how to manage state and DOM updates manually.
