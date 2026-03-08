@@ -13,7 +13,7 @@ export function renderScene(scene, onChoiceClick) {
   titleEl.innerText = scene.id.replace(/_/g, " ");
   descEl.innerText = scene.text;
   gridEl.innerHTML = "";
-  // ❌ DO NOT clear log here anymore
+  
 
   scene.choices.forEach(choice => {
     if (!checkConditions(choice.conditions || {})) return;
@@ -60,3 +60,4 @@ export function updateStats() {
   document.getElementById("stat-public").innerText = pub;
 
 }
+
