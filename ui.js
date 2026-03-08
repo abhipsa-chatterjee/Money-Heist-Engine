@@ -22,7 +22,6 @@ export function renderScene(scene, onChoiceClick) {
     btn.innerText = choice.text;
 
     btn.onclick = () => {
-      // ✅ show log BEFORE changing scene
       if (choice.log) {
         logEl.innerText = choice.log;
       }
@@ -59,4 +58,5 @@ export function updateStats() {
       : "Neutral";
 
   document.getElementById("stat-public").innerText = pub;
+
 }
