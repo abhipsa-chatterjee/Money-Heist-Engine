@@ -2,7 +2,7 @@ let originalStory = null;
 
 export function initEditor(storyData) {
 
-  // ✅ SAVE ORIGINAL ONLY ONCE
+
   if (!localStorage.getItem("originalStory")) {
     localStorage.setItem("originalStory", JSON.stringify(storyData));
   }
@@ -169,4 +169,5 @@ export function initEditor(storyData) {
   location.reload();
 };
   refreshSceneList();
+
 }
